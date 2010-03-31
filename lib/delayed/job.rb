@@ -253,8 +253,8 @@ module Delayed
     end
 
   protected
-
-    def before_save
+    before_save :touch_run_at
+    def touch_run_at
       self.run_at ||= self.class.db_time_now
     end
 
